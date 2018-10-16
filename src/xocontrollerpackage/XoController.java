@@ -15,6 +15,14 @@ public class XoController
 	
 	public void start()
 	{
+		
+		String bun = "chunk \\pi π ";
+		System.out.println(bun);
+		int windex = "chunk \\pi π ".indexOf("hn");
+		System.out.println(windex);
+		
+		
+		
 		initialization();
 		String latestInput = "none";
 		while(!latestInput.equalsIgnoreCase("quit"))

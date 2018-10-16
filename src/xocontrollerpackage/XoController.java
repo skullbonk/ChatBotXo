@@ -14,21 +14,15 @@ public class XoController
 	}
 	
 	public void start()
-	{
-		
-		String bun = "chunk \\pi π ";
-		System.out.println(bun);
-		int windex = "chunk \\pi π ".indexOf("hn");
-		System.out.println(windex);
-		
-		
-		
+	{	
 		initialization();
-		String latestInput = "none";
+		
+		String latestInput = "N/A";
 		while(!latestInput.equalsIgnoreCase("quit"))
 		{
-			chatSession();
+			latestInput = 
 		}
+	
 	}
 	
 	/**
@@ -45,13 +39,22 @@ public class XoController
 				
 		String userName = JOptionPane.showInputDialog(null, "Marvelous. You're gonna have to give me something to adress you by. Like a name. It doesn't have to be your actual name. It doesn't even matter what you type in here, It's just another variable to fart out.");
 		bot.setName(userName);
+		
+		JOptionPane.showMessageDialog(null, "And a kindhearted chapstick to you. Welcome to Xo, " + bot.getName() + ".");
 	}
 	
-	public void chatSession()
+	
+	
+	public String toChatBot(String words)
 	{
-		JOptionPane.showMessageDialog(null, "Excellent. Welcome to Xo, " + bot.getName() + ".");
-		String latestInput = JOptionPane.showInputDialog(null, "What do you wanna say?");
+		String output = "";
+		String userInput = JOptionPane.showInputDialog(null, "Gimme some words");
+		output = bot.parseInput(userInput);
+		
+		return output;
 	}
+	
+	
 
 	
 

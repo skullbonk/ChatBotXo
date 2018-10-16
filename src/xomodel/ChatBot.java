@@ -29,18 +29,28 @@ public class ChatBot
 		this.responseBank = new ArrayList<String>();
 		this.spookyStuff = new ArrayList<String>();
 		
+		createBanks();
+		
 	}
 	
-	public ChatBot(String name, String jokeAsk, String jokeAnswer, String dismissal)
+	public ChatBot(String name, String jokeAsk, String jokeAnswer, String dismissal, ArrayList<String> responseBank, ArrayList<String> spookyStuff)
 	{
 		this.name = name;
 		this.jokeAsk = jokeAsk;
 		this.jokeAnswer = jokeAnswer;
 		this.dismissal = dismissal;
+		
+		this.responseBank = responseBank;
+		this.spookyStuff = responseBank;
+		
+		createBanks();
 	}
 	
-	private void responseList()
+	private void createBanks()
 	{
+		// Some generic crap to say
+		responseBank.add("HEY!! What the frick is up?");
+		responseBank.add("")
 		
 	}
 	

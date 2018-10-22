@@ -1,4 +1,4 @@
-package xocontrollerpackage;
+package chat.xocontroller;
 
 public class XoRunner
 {

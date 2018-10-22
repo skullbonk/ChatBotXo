@@ -1,4 +1,4 @@
-package xomodel;
+package chat.xomodel;
 import java.util.ArrayList;
 
 

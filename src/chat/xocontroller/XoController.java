@@ -1,5 +1,5 @@
-package xocontrollerpackage;
-import xomodel.ChatBot;
+package chat.xocontroller;
+import chat.xomodel.ChatBot;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -21,9 +21,14 @@ public class XoController
 		String latestInput = "N/A";
 		while(!latestInput.equalsIgnoreCase("quit"))
 		{
-			latestInput = 
+			latestInput = (JOptionPane.showInputDialog(null, "type some stuff, or say quit to quit"));
 		}
 	
+	}
+	
+	public ChatBot getChatBot()
+	{
+		return bot;
 	}
 	
 	/**
@@ -46,7 +51,7 @@ public class XoController
 	
 	
 	
-	public String toChatBot(String words)
+	public String repeatInput(String words)
 	{
 		String output = "";
 		String userInput = JOptionPane.showInputDialog(null, "Gimme some words");

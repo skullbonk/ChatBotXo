@@ -1,21 +1,22 @@
 package chat.tests;
 
+
 import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import chat.model.Chatbot;
+import chat.model.ChatBot;
 
-public class ChabotTest
+public class ChatBotTest
 {
-	private Chatbot testedBot;
+	private ChatBot testedBot;
 
 	@Before
 	public void setUp() throws Exception
 	{
-		testedBot = new Chatbot();
+		testedBot = new ChatBot();
 		
 	}
 
@@ -26,7 +27,7 @@ public class ChabotTest
 	}
 
 	@Test
-	public void testChatbot()
+	public void testChatBot()
 	{
 		assertNotNull("You need to initialize the content data member", testedBot.getContent() );
 		assertNotNull("ArrayLists need to be initialized too", testedBot.getSpookyList());
@@ -45,15 +46,15 @@ public class ChabotTest
 		assertTrue("The empty String still should not be returned", testedBot.processText("").length() > 0);
 		assertTrue("The text you supply should be prefixed with \"You said: \" ", testedBot.processText("").contains("You said: "));
 		assertTrue("The text you supply should be prefixed with \"You said: \" ", testedBot.processText(sampleText).contains("You said: "));
-		assertTrue("The text returned should indicate what the chatbot says with \"Chatbot says: \"", testedBot.processText(sampleText).contains("Chatbot says: "));
+		assertTrue("The text returned should indicate what the chatbot says with \"ChatBot says: \"", testedBot.processText(sampleText).contains("ChatBot says: "));
 		String response = testedBot.processText(sampleText);
-		assertTrue("The chatbot content should be after your content", response.indexOf("You said:") < response.indexOf("Chatbot says: "));
+		assertTrue("The chatbot content should be after your content", response.indexOf("You said:") < response.indexOf("ChatBot says: "));
 	}
 
 	@Test
-	public void testChatbotString()
+	public void testChatBotString()
 	{
-		testedBot = new Chatbot("sample content");
+		testedBot = new ChatBot("sample content");
 		assertTrue("String constructor needs to assign to the content variable", testedBot.getContent().equals("sample content"));
 	}
 

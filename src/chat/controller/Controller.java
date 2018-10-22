@@ -1,15 +1,16 @@
-package chat.xocontroller;
-import chat.xomodel.ChatBot;
+package chat.controller;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class XoController
+import chat.model.ChatBot;
+
+public class Controller
 {
 	
 
 	private ChatBot bot;
 	
-	public XoController()
+	public Controller()
 	{
 		bot = new ChatBot();
 	}

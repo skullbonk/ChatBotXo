@@ -1,4 +1,4 @@
-package chat.xomodel;
+package chat.model;
 import java.util.ArrayList;
 
 
@@ -9,8 +9,8 @@ public class ChatBot
 	private String jokeAnswer;
 	private String dismissal;
 	
-	private ArrayList<String> responseBank;
-	private ArrayList<String> spookyStuff;
+	private ArrayList<String> responseList;
+	private ArrayList<String> spookyList;
 	
 	
 	
@@ -26,10 +26,10 @@ public class ChatBot
 		this.dismissal = "Wow that's great, let's talk about [topic]";
 	
 		
-		this.responseBank = new ArrayList<String>();
-		this.spookyStuff = new ArrayList<String>();
+		this.responseList = new ArrayList<String>();
+		this.spookyList = new ArrayList<String>();
 		
-		createBanks();
+		createLists();
 		
 	}
 	
@@ -40,10 +40,10 @@ public class ChatBot
 		this.jokeAnswer = jokeAnswer;
 		this.dismissal = dismissal;
 		
-		this.responseBank = responseBank;
-		this.spookyStuff = responseBank;
+		this.responseList = responseBank;
+		this.spookyList = responseBank;
 		
-		createBanks();
+		createLists();
 	}
 	
 	public String parseInput(String userInput)
@@ -52,11 +52,20 @@ public class ChatBot
 		return response;
 	}
 	
-	private void createBanks()
+	private void createLists()
 	{
 		// Some generic crap to say
-		responseBank.add("HEY!! What the frick is up?");
-		responseBank.add("Tell me stuff.");
+		responseList.add("hhi");
+		responseList.add("HEY!! What the frick is up?");
+		responseList.add("Tell me stuff.");
+		
+		spookyList.add("bats.");
+		spookyList.add("skeletons says heck you");
+		spookyList.add("frick or flight?");
+		spookyList.add("Stinky skanky belly rubs?");
+		spookyList.add("ehboo");
+		spookyList.add("");
+		
 		
 	}
 	
@@ -66,6 +75,16 @@ public class ChatBot
 	public String getName()
 	{
 		return name;
+	}
+	
+	public ArrayList<String> getResponseList()
+	{
+		return responseList;
+	}
+	
+	public ArrayList<String> getSpookyList()
+	{
+		return spookyList;
 	}
 	
 	// NOW ENTERING THE REALM OF SET

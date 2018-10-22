@@ -46,11 +46,17 @@ public class ChatBot
 		createBanks();
 	}
 	
+	public String parseInput(String userInput)
+	{
+		String response = userInput;
+		return response;
+	}
+	
 	private void createBanks()
 	{
 		// Some generic crap to say
 		responseBank.add("HEY!! What the frick is up?");
-		responseBank.add("")
+		responseBank.add("Tell me stuff.");
 		
 	}
 	

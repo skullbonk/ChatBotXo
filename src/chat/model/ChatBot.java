@@ -62,11 +62,42 @@ public class ChatBot
 		spookyList.add("bats.");
 		spookyList.add("skeletons says heck you");
 		spookyList.add("frick or flight?");
-		spookyList.add("Stinky skanky belly rubs?");
+		spookyList.add("Stinky swanky belly rubs?");
 		spookyList.add("ehboo");
-		spookyList.add("");
+		spookyList.add("don't get F L A T");	
+		spookyList.add("i dont eat candy i only eat MANDY");
+		spookyList.add("toilet paper, sir");
+		spookyList.add("you, sma'amir, are in fact ");
+	}
+	
+	
+	/**
+	 * Determines whether the user's input actually means anything.
+	 * @param input User's input
+	 * @return The input makes sense if true
+	 */
+	public boolean legitimacyChecker(String input)
+	{
+		boolean isValid = true;
 		
+		if(input == null)
+		{
+			isValid = false;
+		}
+		else if(input == "")
+		{
+			isValid = false;
+		}
+		else if(input.length() < 2)
+		{
+			isValid = false;
+		}
+		else if(input.contains(";"))     // Because if someone is sending a chatbot
+		{							    // fancy semicolon sentences, they're either
+			isValid = false;           // fake or trying to heck up my javas
+		}
 		
+		return isValid;
 	}
 	
 	

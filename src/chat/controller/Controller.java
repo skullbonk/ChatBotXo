@@ -19,10 +19,11 @@ public class Controller
 	{	
 		initialization();
 		
-		String latestInput = "N/A";
-		while(!latestInput.equalsIgnoreCase("quit"))
+		String input = "definitely not null";
+		while(!input.equalsIgnoreCase("quit"))
 		{
-			latestInput = (JOptionPane.showInputDialog(null, "type some stuff, or say quit to quit"));
+			input = (JOptionPane.showInputDialog(null, "type some stuff, or say quit to quit"));
+			bot.setInput(input);
 		}
 	
 	}
@@ -45,18 +46,18 @@ public class Controller
 		}
 				
 		String userName = JOptionPane.showInputDialog(null, "Marvelous. You're gonna have to give me something to adress you by. Like a name. It doesn't have to be your actual name. It doesn't even matter what you type in here, It's just another variable to fart out.");
-		bot.setName(userName);
+		bot.setCurrentUser(userName);
 		
-		JOptionPane.showMessageDialog(null, "And a kindhearted chapstick to you. Welcome to Xo, " + bot.getName() + ".");
+		JOptionPane.showMessageDialog(null, "And a kindhearted chapstick to you. Welcome to Xo, " + bot.getCurrentUser() + ".");
 	}
 	
 	
 	
 	public String repeatInput(String words)
 	{
-		String output = "";
+		String output = "not null";
 		String userInput = JOptionPane.showInputDialog(null, "Gimme some words");
-		output = bot.parseInput(userInput);
+		output = bot.processText(userInput);
 		
 		return output;
 	}

@@ -4,13 +4,13 @@ import javax.swing.JOptionPane;
 
 import chat.model.ChatBot;
 
-public class Controller
+public class ChatController
 {
 	
 
 	private ChatBot bot;
 	
-	public Controller()
+	public ChatController()
 	{
 		bot = new ChatBot();
 	}
@@ -31,6 +31,22 @@ public class Controller
 	public ChatBot getChatBot()
 	{
 		return bot;
+	}
+	
+	public String interactWithChatBot(String input)
+	{
+		if(input == null)
+		{
+			return "sir you left it null";
+		}
+		return "words";
+	}
+	
+	public String useChatBotCheckers(String input)
+	{
+		bot.spookyChecker(input);
+		bot.contentChecker(input);
+		return "";
 	}
 	
 	/**

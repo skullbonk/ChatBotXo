@@ -27,27 +27,27 @@ public class ControllerTest
 	@Test
 	public void testChatController()
 	{
-		assertNotNull("Chatbot data member not initialized", testController.getChatbot());
+		assertNotNull("Chatbot data member not initialized", testController.getChatBot());
 	}
 
 	@Test
 	public void testInteractWithChatbot()
 	{
-		assertNotNull("Stub method used, implement with code", testController.interactWithChatbot(""));
-		assertNotNull("Null should not ever be returned", testController.interactWithChatbot(null));
-		assertTrue("If null is supplied user should be notified about it", testController.interactWithChatbot(null).toLowerCase().contains("null"));
+		assertNotNull("Stub method used, implement with code", testController.interactWithChatBot(""));
+		assertNotNull("Null should not ever be returned", testController.interactWithChatBot(null));
+		assertTrue("If null is supplied user should be notified about it", testController.interactWithChatBot(null).toLowerCase().contains("null"));
 	}
 
 	@Test
 	public void testUseChatbotCheckers()
 	{
-		assertTrue("Spooky tester method not implemented", testController.useChatbotCheckers("spooky").contains("Halloween"));
+		assertTrue("Spooky tester method not implemented", testController.useChatBotCheckers("spooky").contains("Halloween"));
 	}
 
 	@Test
-	public void testGetChatbot()
+	public void testGetChatBot()
 	{
-		assertNotNull("Chatbot data member not initialized", testController.getChatbot());
+		assertNotNull("Chatbot data member not initialized", testController.getChatBot());
 	}
 
 }

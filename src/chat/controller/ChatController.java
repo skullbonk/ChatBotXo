@@ -1,5 +1,5 @@
 package chat.controller;
-import java.util.ArrayList;
+// import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import chat.model.ChatBot;
@@ -10,20 +10,20 @@ public class ChatController
 
 	private ChatBot bot;
 	
+	String input = "definitely not null";
+	
 	public ChatController()
 	{
-		bot = new ChatBot();
+		bot = new ChatBot(input);
 	}
 	
 	public void start()
 	{	
 		initialization();
-		
-		String input = "definitely not null";
+		input = (JOptionPane.showInputDialog(null, "type some stuff, or say quit to quit"));
 		while(!input.equalsIgnoreCase("quit"))
 		{
-			input = (JOptionPane.showInputDialog(null, "type some stuff, or say quit to quit"));
-			bot.setInput(input);
+			input =JOptionPane.showInputDialog(null, interactWithChatBot(input) + " | type some stuff to respond, or say quit to quit");	
 		}
 	
 	}
@@ -39,14 +39,15 @@ public class ChatController
 		{
 			return "sir you left it null";
 		}
-		return "words";
+		// getChatBot();
+		return bot.processText(input);
 	}
 	
 	public String useChatBotCheckers(String input)
 	{
 		bot.spookyChecker(input);
 		bot.contentChecker(input);
-		return "";
+		return "Halloween";
 	}
 	
 	/**

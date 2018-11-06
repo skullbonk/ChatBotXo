@@ -6,7 +6,7 @@ import java.util.Random;
 public class ChatBot
 {
 	private String currentUser = "definitely not null";
-	private String input = "definitely not null";
+	// private String input = "definitely not null";
 	private String content = "definitely not null";
 	private String response = "definitely not null";
 	
@@ -17,12 +17,12 @@ public class ChatBot
 	private ArrayList<String> spookyList;
 	
 	
+	
 	/**
 	 * Initializes ChatBot with default settings.
 	 */
 	public ChatBot()
 	{
-		
 		this.responseList = new ArrayList<String>();
 		this.spookyList = new ArrayList<String>();
 		
@@ -31,35 +31,55 @@ public class ChatBot
 		
 	}
 
-	public ChatBot(String content)
+	
+	public ChatBot(String input)
 	{
 		this.responseList = new ArrayList<String>();
 		this.spookyList = new ArrayList<String>();
-		this.content = content;
+		this.content = input;
 		
 		createLists();
 		getContent();
 	}
 	
 	
+	
 	public String processText(String input)
-	{
+	{		
+		int index = random.nextInt(16);
+		
+		if(legitimacyChecker(input) == false)
+		{
+			content = "You said: " + input + ".";
+			response = "Yeah no, try again flingus";
+			return content + " ChatBot says: " + response + ".";
+		}
+		
 		if(input == getContent())
 		{
-			return "You said the special words";
+			return "You said the special words ";
 		}
-		content = "You said: " + input;
-		int index = random.nextInt(16);
-		response = responseList.get(index);
-		return content + "ChatBot says: " + response;
+		
+		if(spookyChecker(input) == true)
+		{
+			response =  spookyList.get(index);
+		}
+		else
+		{
+			response = responseList.get(index);
+		}
+		
+		content = "You said: " + input + ".";
+		
+		return content + " ChatBot says: " +  response + ".";
 	}
 	
 	
 	
 	private void createLists()
 	{		
-		///////////////////////////// --- RESONSE LIST --- ////////////////////////////
-		//////////////////////////// --- 16 RESPONSES --- ////////////////////////////	
+	   ///////////////////////////// --- RESONSE LIST --- ////////////////////////////
+	  //////////////////////////// --- 16 RESPONSES --- ////////////////////////////	
 		/*00*/	responseList.add("hhHhhhHHhHhhHHello");
 		/*01*/	responseList.add("HEY!! What the frick is up?");
 		/*02*/	responseList.add("Tell me stuff.");
@@ -76,8 +96,12 @@ public class ChatBot
 		/*13*/	responseList.add("want some jokes? no? ok.");
 		/*14*/	responseList.add("you sure you don't want some jokes?");
 		/*15*/	responseList.add("i'm pretty sure you could use some jokes");
-		///////////////////////////// --- SPOOKY  LIST --- ////////////////////////////
-		//////////////////////////// --- 15 responses --- ////////////////////////////	
+/*		
+	 \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+     ///////////////////////////////////////////////////////////////////////////////////////////		
+*/		
+	   ///////////////////////////// --- SPOOKY  LIST --- ////////////////////////////
+	  ///////////////////////////// --- 15 responses --- ////////////////////////////
 		/*00*/	spookyList.add("hey what day is Halloween? like yesterday?");
 		/*01*/	spookyList.add("bats.");
 		/*02*/	spookyList.add("skeletons says heck you");
@@ -92,13 +116,16 @@ public class ChatBot
 		/*11*/	spookyList.add("s n i c k e r s b a r s");
 		/*12*/	spookyList.add("spooky shoes");
 		/*13*/	spookyList.add("i like to glue my candy to half a ball of styrofoam and watch the kids yell heck");
-		/*14*/	spookyList.add("only "
-							+ "take "
-							+ "one "
-							+ ""
-							+ ""
-							+ "sir"
-							+ "");
+		/*14*/  spookyList.add("remember not to walk up stairs that have the gaps between the steps");
+		/*15*/	spookyList.add("only "
+		/*--*/				+ "take "
+		/*--*/				+ "one "
+		/*--*/				+ ""
+		/*--*/				+ ""
+		/*--*/				+ "helen"
+		/*--*/				+ "");
+	   ////////////////////////////// --- END OF BOTH --- /////////////////////////////
+	  ///////////////////////////// --- RESPONSE LISTS --- ///////////////////////////
 	}
 	
 ///////////////////////////// --- CHECKER SECTION --- /////////////////////////////
@@ -106,15 +133,17 @@ public class ChatBot
 	public boolean contentChecker(String input)
 	{
 		boolean special = false;
-		if(input.equals(getContent()))
-		{
-			special = true;
-		}
-		if(input == content)
 		
+		if(input.equals(content))
 		{
 			special = true;
 		}
+		
+		if(processText(input).equals(getContent()))
+		{
+			special = true;
+		}
+		
 		return special;
 	}
 	
@@ -126,6 +155,12 @@ public class ChatBot
 		{
 			isSpooky = true;
 		}
+		
+		if(input.equals("spooky"))
+		{
+			isSpooky = true;
+		}
+		
 		if(input.contains("Halloween"))
 		{
 			isSpooky = true;
@@ -151,11 +186,7 @@ public class ChatBot
 	{
 		boolean isValid = true;
 		
-		if(input == null)
-		{
-			isValid = false;
-		}
-		else if(input == "")
+		if(input == null || input == "")
 		{
 			isValid = false;
 		}
@@ -163,13 +194,9 @@ public class ChatBot
 		{
 			isValid = false;
 		}
-		else if(input.contains(";"))     // Because if someone is sending a chatbot
-		{							    // fancy semicolon sentences, they're either
-			isValid = false;           // fake or trying to heck up my javas
-		}
-		else if(input.contains("df"))
-		{
-			isValid = false;
+		else if(input.contains("df") || input.contains(";"))     // Because if someone is sending a chatbot
+		{							    						// fancy semicolon sentences, they're either
+			isValid = false;         						   // fake, or trying to heck up my javas
 		}
 		
 		return isValid;
@@ -211,9 +238,10 @@ public class ChatBot
 		this.currentUser = currentUser;
 	}
 	
-	
+	/*
 	public void setInput(String input)
 	{
 		this.input = input;
 	}
+	*/
 }

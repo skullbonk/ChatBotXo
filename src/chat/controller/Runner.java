@@ -4,7 +4,7 @@ public class Runner
 {
 	public static void main (String [] args)
 	{
-		Controller app = new Controller();
+		ChatController app = new ChatController();
 		app.start();
 	}
 

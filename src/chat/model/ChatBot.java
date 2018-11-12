@@ -16,8 +16,6 @@ public class ChatBot
 	private ArrayList<String> responseList;
 	private ArrayList<String> spookyList;
 	
-	
-	
 	/**
 	 * Initializes ChatBot with default settings.
 	 */
@@ -26,12 +24,31 @@ public class ChatBot
 		this.responseList = new ArrayList<String>();
 		this.spookyList = new ArrayList<String>();
 		
+/*			 
+		                     *       *                                               
+		              *      |             *                                          
+		           *  |      |                 * 
+		        *     |      |                    *
+		              |      |                                                             
+		  	  *       |      |                      *
+		              |      |        
+	     	 *        |      |                       *
+		  	          |      |         
+		     *        |      |                       *
+		              |      |           
+		      *       |      |                      *
+		       --------      -----------------------                    
+		        -------      ---------------------
+		              |      |
+		           *  |      |                 *
+		              *      |             *
+		                     *       *		  
+*/		 
 		createLists();
 		getContent();
 		
 	}
 
-	
 	public ChatBot(String input)
 	{
 		this.responseList = new ArrayList<String>();
@@ -41,9 +58,7 @@ public class ChatBot
 		createLists();
 		getContent();
 	}
-	
-	
-	
+
 	public String processText(String input)
 	{		
 		int index = random.nextInt(16);

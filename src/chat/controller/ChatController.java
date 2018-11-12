@@ -3,6 +3,37 @@ package chat.controller;
 import javax.swing.JOptionPane;
 
 import chat.model.ChatBot;
+/*	 
+ *                    *       *                                               
+ *             *      |             *                                          
+ *          *  |      |                 * 
+ *       *     |      |                   *
+ *             |      |                                                             
+ * 	   *       |      |                     *
+ *             |      |        
+ * 	  *        |      |                      *
+ * 	           |      |         
+ *    *        |      |                      *
+ *             |      |           
+ *     *       |      |                     *
+ *      --------      ----------------------                    
+ *        ------      --------------------
+ *             |      |
+ *          *  |      |               *
+ *             *      |            *
+ *                    *       *
+ *        
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
+
+
+
 
 public class ChatController
 {
@@ -11,6 +42,7 @@ public class ChatController
 	private ChatBot bot;
 	
 	String input = "definitely not null";
+	
 	
 	public ChatController()
 	{
@@ -23,7 +55,7 @@ public class ChatController
 		input = (JOptionPane.showInputDialog(null, "type some stuff, or say quit to quit"));
 		while(!input.equalsIgnoreCase("quit"))
 		{
-			input =JOptionPane.showInputDialog(null, interactWithChatBot(input) + " | type some stuff to respond, or say quit to quit");	
+			input = JOptionPane.showInputDialog(null, interactWithChatBot(input) + " | type some stuff to respond, or say quit to quit");	
 		}
 	
 	}

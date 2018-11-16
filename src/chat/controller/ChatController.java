@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 import chat.model.ChatBot;
 /*	 
+ * 
  *                    *       *                                               
  *             *      |             *                                          
  *          *  |      |                 * 
@@ -17,24 +18,13 @@ import chat.model.ChatBot;
  *             |      |           
  *     *       |      |                     *
  *      --------      ----------------------                    
- *        ------      --------------------
+ *       -------      --------------------
  *             |      |
  *          *  |      |               *
  *             *      |            *
  *                    *       *
- *        
- * 
- * 
- * 
- * 
- * 
  * 
  */
-
-
-
-
-
 public class ChatController
 {
 	

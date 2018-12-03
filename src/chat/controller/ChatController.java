@@ -8,6 +8,11 @@ import java.awt.event.ActionListener;
 import java.awt.Canvas;
 
 import chat.model.ChatBot;
+import chat.view.ChatFrame;
+import chat.view.ChatPanel;
+
+
+
 /*	 
  * 
  *                    *       *                                               
@@ -30,11 +35,16 @@ import chat.model.ChatBot;
  *                    *       *
  * 
  */
+
+
+
 public class ChatController
 {
 	
 
 	private ChatBot bot;
+	private ChatFrame frame;
+	private ChatPanel panel;
 	
 	String input = "definitely not null";
 	
@@ -42,6 +52,7 @@ public class ChatController
 	public ChatController()
 	{
 		bot = new ChatBot(input);
+		frame = new ChatFrame(this);
 	}
 	
 	public void start()

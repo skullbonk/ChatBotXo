@@ -71,13 +71,13 @@ public class ChatBot
 		if(legitimacyChecker(input) == false)
 		{
 			content = "You said: " + input + ".";
-			response = "Yeah no, try again flingus";
+			response = "\nYeah no, try again flingus";
 			return content + " ChatBot says: " + response + ".";
 		}
 		
 		if(input == getContent())
 		{
-			return "You said the special words ";
+			return "\n" + "You said the special words ";
 		}
 		
 		if(spookyChecker(input) == true)
@@ -89,9 +89,9 @@ public class ChatBot
 			response = responseList.get(index);
 		}
 		
-		content = "You said: " + input + ".";
+		content = "\nYou said: " + input + ".";
 		
-		return content + " ChatBot says: " +  response + ".";
+		return content + "\nChatBot says: " + response + ".";
 	}
 	
 	

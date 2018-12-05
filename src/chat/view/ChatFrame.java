@@ -2,6 +2,7 @@ package chat.view;
 
 import javax.swing.JFrame;
 import chat.controller.ChatController;
+import java.awt.GridBagLayout;
 
 public class ChatFrame extends JFrame
 {
@@ -12,6 +13,12 @@ public class ChatFrame extends JFrame
 	{
 		super();
 		this.appPanel = new ChatPanel(appController);
+		GridBagLayout gbl_appPanel = new GridBagLayout();
+		gbl_appPanel.columnWidths = new int[]{0};
+		gbl_appPanel.rowHeights = new int[]{0};
+		gbl_appPanel.columnWeights = new double[]{Double.MIN_VALUE};
+		gbl_appPanel.rowWeights = new double[]{Double.MIN_VALUE};
+		appPanel.setLayout(gbl_appPanel);
 		
 		setupFrame();
 	}

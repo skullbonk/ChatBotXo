@@ -79,6 +79,8 @@ public class ChatController
 		return bot;
 	}
 	
+	
+	/*
 	public String interactWithChatBot(String input)
 	{
 		if(input == null)
@@ -88,6 +90,17 @@ public class ChatController
 		// getChatBot();
 		return bot.processText(input);
 	}
+	*/
+	
+	///// new interactWithChatBot() /////
+	
+	public String interactWithChatBot(String input)
+	{
+		String output = "";
+		output += bot.processText(input);
+		return output;
+	}
+	
 	
 	public String useChatBotCheckers(String input)
 	{

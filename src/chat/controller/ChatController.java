@@ -55,6 +55,9 @@ public class ChatController
 		frame = new ChatFrame(this);
 	}
 	
+	/*
+	 * OLD START METHOD, PRE-GUI
+	 * 
 	public void start()
 	{	
 		initialization();
@@ -65,7 +68,12 @@ public class ChatController
 		}
 	
 	}
+	*/
 	
+	public void start()
+	{
+		
+	}
 	public ChatBot getChatBot()
 	{
 		return bot;

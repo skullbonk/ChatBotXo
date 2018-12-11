@@ -14,18 +14,18 @@ public class IOController
 	{
 		try
 		{
-			String filename = path;
-			Calendar date = Calendar.getInstance();
-			filename += "/" + date.get(Calendar.MONTH) + " " + date.get(Calendar.DAY_OF_MONTH);
+			String filename = path; // links the filename variable to the path parameter
+			Calendar date = Calendar.getInstance(); // the date variable is the current date
+			filename += "/" + date.get(Calendar.MONTH) + " " + date.get(Calendar.DAY_OF_MONTH); // begins building a filename around the current date, starting with the day
+			filename += date.get(Calendar.HOUR) + "-" + date.get(Calendar.MINUTE);			
 			filename += " chatbot save.txt";
-			
-			File saveFile = new File(filename);
+			File saveFile = new File(filename); // saves file with name specified by filename
 			Scanner textScanner = new Scanner(textToSave);
 			PrintWriter saveText = new PrintWriter(saveFile);
 			
 			while(textScanner.hasNext())
 			{
-				String currentLine = textScanner.nextLine();
+				String currentLine = textScanner.nextLine(); 
 				saveText.println(currentLine);
 			}
 			
@@ -38,8 +38,28 @@ public class IOController
 			app.handleErrors(error);
 		}
 		catch(Exception genericError)
+		try
+		{
+			File saveFile = new File(path);
+			Scanner fileScanner;
+			if(saveFile.exists())
+			{
+				fileScanner = new Scanner(saveFile);
+				while(fileScanner.hasNext())
+				{
+					contents += fileScanner.nextLine() + "\n";
+				}
+			}
+		}
+		catch(IOException error)
+		{
+			app.handleErrors(error);
+		}
+		catch(Exception genericError)
 		{
 			app.handleErrors(genericError);
 		}
+		
+		return contents;
 	}
 }

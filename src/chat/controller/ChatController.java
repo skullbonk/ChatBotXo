@@ -138,6 +138,16 @@ public class ChatController
 		return output;
 	}
 	
+	private void close()
+	{
+		System.exit(0);
+	}
+	
+	public void handleErrors()
+	{
+		JOptionPane.showMessageDialog(frame, error.getMessage());
+	}
+	
 	
 
 	

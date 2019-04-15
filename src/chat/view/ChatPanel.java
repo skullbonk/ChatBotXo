@@ -27,7 +27,7 @@ public class ChatPanel extends JPanel
 	
 	private JScrollPane chatPane;
 	
-	private SpringLayout chatLayout;
+//	private SpringLayout chatLayout;
 	
 	private String labelText = "Please don't say anything mean to Xo, as it's a crappy program that won't care, so it would be a waste of your time";
 	
@@ -58,7 +58,7 @@ public class ChatPanel extends JPanel
 		
 		chatPane = new JScrollPane();
 		
-		chatLayout = new SpringLayout();
+//		chatLayout = new SpringLayout();
 		
 		
 		
@@ -84,7 +84,7 @@ public class ChatPanel extends JPanel
 	
 	private void setupPanel()
 	{
-		this.setLayout(chatLayout);
+		this.setLayout(null);
 		this.setPreferredSize(new Dimension(800, 600));
 		this.setBackground(Color.DARK_GRAY);
 		
@@ -96,9 +96,34 @@ public class ChatPanel extends JPanel
 		this.add(chatButton);
 	}
 	
+	public String getPath(String choice)
+	{
+		String path = ".";
+		int result = -99;
+		JFileChooser fileChooser = new JFileChooser();
+		if (choice.equals("save"))
+		{
+			fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			result = fileChooser.showSaveDialog(this);
+			if(result == JFileChooser.APPROVE_OPTION)
+			{
+				path = fileChooser.getCurrentDirectory().getAbsolutePath();
+			}
+		}
+		else
+		{
+			result = fileChooser.showOpenDialog(this);
+			if(result == JFileChooser.APPROVE_OPTION)
+			{
+				path = fileChooser.getSelectedFile().getAbsolutePath();
+			}
+		}
+		return path;
+	}
+	
 	private void setupLayout()
 	{
-		
+		/*
 		chatLayout.putConstraint(SpringLayout.NORTH, chatButton, 0, SpringLayout.NORTH, loadButton);
 		chatLayout.putConstraint(SpringLayout.EAST, chatButton, 0, SpringLayout.EAST, chatPane);
 		chatLayout.putConstraint(SpringLayout.NORTH, checkerButton, 6, SpringLayout.SOUTH, chatField);
@@ -113,7 +138,7 @@ public class ChatPanel extends JPanel
 		chatLayout.putConstraint(SpringLayout.NORTH, chatPane, 50, SpringLayout.NORTH, this);
 		chatLayout.putConstraint(SpringLayout.WEST, chatPane, 50, SpringLayout.WEST, this);
 		chatLayout.putConstraint(SpringLayout.EAST, chatPane, -50, SpringLayout.EAST, this);
-		
+		*/
 		
 	}
 	
@@ -132,6 +157,8 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
+		
+		
 		saveButton.addActionListener(new ActionListener()
 				{
 					public void actionPerformed(ActionEvent click)
@@ -140,6 +167,16 @@ public class ChatPanel extends JPanel
 						String path = ".";
 						IOController.saveText(appController, path, chatText);
 						chatArea.setText("Chat saved");
+					}
+				});
+		
+		loadButton.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent click)
+					{
+						String path = getPath("load");
+						String chatText = IOController.loadFile(appController, path);
+						chatArea.setText(chatText);
 					}
 				});
 	}

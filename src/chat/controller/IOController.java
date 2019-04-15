@@ -4,6 +4,9 @@ import java.*;
 
 import java.util.Calendar;
 import java.util.Scanner;
+
+import javax.swing.JFileChooser;
+
 import java.io.IOException;
 import java.io.File;
 import java.io.PrintWriter;
@@ -35,31 +38,44 @@ public class IOController
 		}
 		catch(IOException error)
 		{
-			app.handleErrors(error);
+		//	app.handleErrors(error);
 		}
 		catch(Exception genericError)
-		try
 		{
-			File saveFile = new File(path);
-			Scanner fileScanner;
-			if(saveFile.exists())
+			//	app.handleErrors(genericError);
+		}
+	}
+		
+	
+	
+	
+		public String loadFile(String controller, String path)
+		{
+			String contents = "";
+		
+			try
 			{
-				fileScanner = new Scanner(saveFile);
-				while(fileScanner.hasNext())
+				File saveFile = new File(path);
+				Scanner fileScanner;
+				if(saveFile.exists())
 				{
-					contents += fileScanner.nextLine() + "\n";
+					fileScanner = new Scanner(saveFile);
+					while(fileScanner.hasNext())
+					{
+						contents += fileScanner.nextLine() + "\n";
+					}
+					fileScanner.close();
 				}
 			}
-		}
-		catch(IOException error)
-		{
-			app.handleErrors(error);
-		}
-		catch(Exception genericError)
-		{
-			app.handleErrors(genericError);
-		}
+			catch(IOException error)
+			{
+			//	app.handleErrors(error);
+			}
+			catch(Exception genericError)
+			{
+			//	app.handleErrors(genericError);
+			}
 		
-		return contents;
-	}
+			return contents;
+		}
 }

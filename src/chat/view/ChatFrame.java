@@ -1,8 +1,9 @@
 package chat.view;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 import chat.controller.ChatController;
 import java.awt.GridBagLayout;
+import java.awt.*;
 
 public class ChatFrame extends JFrame
 {
@@ -13,12 +14,8 @@ public class ChatFrame extends JFrame
 	{
 		super();
 		this.appPanel = new ChatPanel(appController);
-		GridBagLayout gbl_appPanel = new GridBagLayout();
-		gbl_appPanel.columnWidths = new int[]{0};
-		gbl_appPanel.rowHeights = new int[]{0};
-		gbl_appPanel.columnWeights = new double[]{Double.MIN_VALUE};
-		gbl_appPanel.rowWeights = new double[]{Double.MIN_VALUE};
-		appPanel.setLayout(gbl_appPanel);
+//		SpringLayout frameLayout = new SpringLayout();
+//		appPanel.setLayout(frameLayout);
 		
 		setupFrame();
 	}
@@ -26,9 +23,9 @@ public class ChatFrame extends JFrame
 	private void setupFrame()
 	{
 		this.setContentPane(appPanel);
-		this.setSize(800, 800);
+		this.setSize(1024, 768);
 		this.setTitle("Xo");
-		this.setResizable(true);
+		this.setResizable(false);
 		this.setVisible(true);
 	}
 }

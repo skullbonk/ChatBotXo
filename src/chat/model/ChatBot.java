@@ -137,13 +137,12 @@ public class ChatBot
 		/*12*/	spookyList.add("spooky shoes");
 		/*13*/	spookyList.add("i like to glue my candy to half a ball of styrofoam and watch the kids yell heck");
 		/*14*/  spookyList.add("remember not to walk up stairs that have the gaps between the steps");
-		/*15*/	spookyList.add("only "
-		/*--*/				+ "take "
-		/*--*/				+ "one "
-		/*--*/				+ ""
-		/*--*/				+ ""
-		/*--*/				+ "helen"
-		/*--*/				+ "");
+		/*15*/	spookyList.add("only \n"
+		/*--*/				+ "take \n"
+		/*--*/				+ "one \n"
+		/*--*/				+ "\n"
+		/*--*/				+ "\n"
+		/*--*/				+ "helen\n");
 	   ////////////////////////////// --- END OF BOTH --- /////////////////////////////
 	  ///////////////////////////// --- RESPONSE LISTS --- ///////////////////////////
 	}

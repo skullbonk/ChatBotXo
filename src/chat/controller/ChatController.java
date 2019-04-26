@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Canvas;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
 
 import chat.model.ChatBot;
 import chat.view.ChatFrame;
@@ -79,19 +81,6 @@ public class ChatController
 		return bot;
 	}
 	
-	
-	/*
-	public String interactWithChatBot(String input)
-	{
-		if(input == null)
-		{
-			return "sir you left it null";
-		}
-		// getChatBot();
-		return bot.processText(input);
-	}
-	*/
-	
 	///// new interactWithChatBot() /////
 	
 	public String interactWithChatBot(String input)
@@ -108,6 +97,7 @@ public class ChatController
 		bot.contentChecker(input);
 		return "Halloween";
 	}
+	
 	
 	/**
 	 * Shows disclaimer and asks for username.
@@ -128,7 +118,6 @@ public class ChatController
 	}
 	
 	
-	
 	public String repeatInput(String words)
 	{
 		String output = "not null";
@@ -138,16 +127,15 @@ public class ChatController
 		return output;
 	}
 	
-	
 
 	private void close()
 	{
 		System.exit(0);
 	}
 	
-	public void handleErrors()
+	public void handleErrors(Exception error)
 	{
-	//	JOptionPane.showMessageDialog(frame, error.getMessage());
+		System.out.println(error);
 	}
 	
 	

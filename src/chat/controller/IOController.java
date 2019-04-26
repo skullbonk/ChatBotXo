@@ -49,7 +49,7 @@ public class IOController
 	
 	
 	
-		public String loadFile(String controller, String path)
+		public static String loadFromFile(ChatController controller, String path)
 		{
 			String contents = "";
 		

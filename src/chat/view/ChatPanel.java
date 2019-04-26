@@ -172,7 +172,13 @@ public class ChatPanel extends JPanel
 			}
 		});
 		
-		
+		searchTwitterButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String usernameToSearch = chatField.getText();
+			}
+		});
 		
 		saveButton.addActionListener(new ActionListener()
 				{
@@ -190,8 +196,8 @@ public class ChatPanel extends JPanel
 					public void actionPerformed(ActionEvent click)
 					{
 						String path = getPath("load");
-//						String chatText = IOController.loadFile(appController, path);
-//						chatArea.setText(chatText);
+						String chatText = IOController.loadFromFile(appController, path);
+						chatArea.setText(chatText);
 					}
 				});
 	}

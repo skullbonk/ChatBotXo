@@ -9,9 +9,8 @@ import java.awt.Canvas;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 
-import chat.model.ChatBot;
-import chat.view.ChatFrame;
-import chat.view.ChatPanel;
+import chat.model.*;
+import chat.view.*;
 
 
 
@@ -47,6 +46,7 @@ public class ChatController
 	private ChatBot bot;
 	private ChatFrame frame;
 	private ChatPanel panel;
+	private ChatTwitter meTwit;
 	
 	String input = "definitely not null";
 	
@@ -125,6 +125,12 @@ public class ChatController
 		output = bot.processText(userInput);
 		
 		return output;
+	}
+	
+	
+	public void tweet(String text)
+	{
+		meTwit.sendTweet(text);
 	}
 	
 

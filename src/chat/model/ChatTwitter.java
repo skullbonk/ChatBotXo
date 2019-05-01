@@ -30,7 +30,7 @@ public class ChatTwitter
 	private long totalWordCount;
 	private HashMap<String, Integer> wordsAndCount;
 	
-	public ChatTwitter()
+	public ChatTwitter(ChatController app)
 	{
 		this.app = app;
 		this.chatTwitter = TwitterFactory.getSingleton();
@@ -134,10 +134,10 @@ private void removeBlanks()
     private String [] createIgnoredWordArray()
     	{
     		String [] boringWords;
-    		String fileText = IOController.loadFromFile(app, "commonWords.txt");
+//    		String fileText = IOController.loadFromFile(app, "commonWords.txt");
     		int wordCount = 0;
     		
-    		Scanner wordScanner = new Scanner(fileText);
+    		Scanner wordScanner = new Scanner(this.getClass().getResourceAsStream("data/commonWords.txt"));
     		
     		while(wordScanner.hasNextLine())
     		{

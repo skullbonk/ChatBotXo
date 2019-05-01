@@ -47,7 +47,7 @@ public class ChatPanel extends JPanel
 		saveIcon = new ImageIcon(getClass().getResource("/chat/view/images/save.png"));
 		loadIcon = new ImageIcon(getClass().getResource("/chat/view/images/load.png"));
 		chatIcon = new ImageIcon(getClass().getResource("/chat/view/images/chat.png"));
-		checkerIcon = new ImageIcon(getClass().getResource("/chat/view/images/check.png"));
+//		checkerIcon = new ImageIcon(getClass().getResource("/chat/view/images/check.png"));
 		tweetIcon = new ImageIcon(getClass().getResource("/chat/view/images/tweet.png"));
 		searchIcon = new ImageIcon(getClass().getResource("/chat/view/images/searchTwitter.png"));
 		
@@ -192,13 +192,22 @@ public class ChatPanel extends JPanel
 				});
 		
 		loadButton.addActionListener(new ActionListener()
-				{
-					public void actionPerformed(ActionEvent click)
-					{
-						String path = getPath("load");
-						String chatText = IOController.loadFromFile(appController, path);
-						chatArea.setText(chatText);
-					}
-				});
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				String path = getPath("load");
+				String chatText = IOController.loadFromFile(appController, path);
+				chatArea.setText(chatText);
+			}
+		});
+		
+		tweetButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent tweetClick)
+			{
+				String textToTweet = chatField.getText().trim();
+				appController.tweet(textToTweet);
+			}
+		});
 	}
 }

@@ -54,6 +54,7 @@ public class ChatController
 	public ChatController()
 	{
 		bot = new ChatBot(input);
+		meTwit = new ChatTwitter(this);
 		frame = new ChatFrame(this);
 	}
 	

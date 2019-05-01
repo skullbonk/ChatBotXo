@@ -58,25 +58,17 @@ public class ChatController
 		frame = new ChatFrame(this);
 	}
 	
-	/*
-	 * OLD START METHOD, PRE-GUI
-	 * 
-	public void start()
-	{	
-		initialization();
-		input = (JOptionPane.showInputDialog(null, "type some stuff, or say quit to quit"));
-		while(!input.equalsIgnoreCase("quit"))
-		{
-			input = JOptionPane.showInputDialog(null, interactWithChatBot(input) + " | type some stuff to respond, or say quit to quit");	
-		}
-	
-	}
-	*/
-	
 	public void start()
 	{
 		
 	}
+	
+	public String findWords(String user)
+	{
+		String results = meTwit.getMostCommonWord(user);
+		return results;
+	}
+	
 	public ChatBot getChatBot()
 	{
 		return bot;
